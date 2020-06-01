@@ -17,8 +17,6 @@
 get_header();
 ?> 
 
-<h3>This is index.php</h3>
-
 <!-- Page Content -->
 <div class="container">
 

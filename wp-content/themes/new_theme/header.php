@@ -44,10 +44,13 @@ bloginfo( 'name' );
 		array(
 			'menu'       => 'primary-menu',
 			'container'  => '',
-			'items_wrap' => '<ul class="nav navbar-nav navbar-right headerMenu">%3$s</ul>',
+            'items_wrap' => '<ul class="nav navbar-nav navbar-right headerMenu" style ="margin-left:500px; text-align:right; padding:15px; background-color:white;">%3$s</ul>',
+            'items_wrap' => '<li class="nav navbar-nav navbar-right headerMenu" style ="text-align:right; margin:10px; margin-left:500px; padding:px;">%3$s</li>',
 		)
 	);
-	?>
+    ?>
+<img src="<?php header_image(); ?>" width="<?php echo absint( get_custom_header()->width ); ?>" height="<?php echo absint( get_custom_header()->height ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
+    
 </div>
 </div>
 </nav>

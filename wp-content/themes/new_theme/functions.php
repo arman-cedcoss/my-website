@@ -35,38 +35,32 @@ add_action( 'wp_enqueue_scripts', 'themeslug_enqueue_script' );
  */
 function register_menu() {
 	// menu register code.
-	register_nav_menus(
-		array(
-			'primary-menu' => __( 'Primary Menu' ),
-			'footer-menu'  => __( 'Footer Menu' ),
-			'sidebar-menu' => __( 'Sidebar Menu' ),
-		)
-	);
+	register_nav_menu('primary','primary header navigation');
+	register_nav_menu('secondary','footer navigation');
+	add_theme_support( 'menus' );
 }
 	// attach with action hook.
 
 add_action( 'init', 'register_menu' );
-
-
 add_theme_support( 'post-thumbnails' );
+add_theme_support('custom-background');
+add_theme_support('custom-header');
 
-
-
-function themename_custom_header_setup() {
-    $args = array(
-        'default-image'      => get_template_directory_uri() . 'img/default-image.jpg',
-        'default-text-color' => '000',
-        'width'              => 1000,
-        'height'             => 250,
-        'flex-width'         => true,
-        'flex-height'        => true,
-    )
-    add_theme_support( 'custom-header', $args );
+function awesome_widget_setup()	{
+	register_sidebar(
+	array(
+		'name' => 'sidebar',
+		'id' =>'sidebar-1',
+		'class' =>'custom',
+		'description' => 'standard sidebar',
+		'before-widget' => '<aside id="%1$s" class="widget %$2s">',
+		'after-widget' => '<aside>',
+		'before-title' => '<h1 class="widget-title">',
+		'after-title' => '</h1>',)
+);
 }
-add_action( 'after_setup_theme', 'themename_custom_header_setup' );
+add_action('widgets_init','awesome_widget_setup');
 
-
-add_theme_support( 'custom-header' );
 
 
 
