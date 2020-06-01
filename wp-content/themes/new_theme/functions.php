@@ -1,6 +1,9 @@
 <?php
 /**
  * This is comment
+ * =============================================================
+ *         ENQUEUING SCRIPTS
+ * =============================================================
  *
  * @package WordPress
  */
@@ -30,8 +33,11 @@ add_action( 'wp_enqueue_scripts', 'themeslug_enqueue_script' );
 
 /**
  * This is comment
+=============================================================
+ *         ADDING MENU
+=============================================================
  *
- * @package WordPress
+ *  @package WordPress
  */
 function register_menu() {
 	// menu register code.
@@ -42,13 +48,45 @@ function register_menu() {
 	// attach with action hook.
 
 add_action( 'init', 'register_menu' );
-add_theme_support( 'post-thumbnails' );
-add_theme_support('custom-background');
-add_theme_support('custom-header');
 
+/*
+=============================================================
+ *         POST-THUMBNAIL
+=============================================================
+*
+*
+*/
+add_theme_support( 'post-thumbnails' );
+
+/*
+=============================================================
+ *         CUSTOM-BACKGROUND
+=============================================================
+*
+*
+*/
+
+add_theme_support( 'custom-background' );
+
+/*
+=============================================================
+ *         CUSTOM-HEADER
+=============================================================
+*
+*
+*/
+add_theme_support( 'custom-header' );
+
+/*
+=============================================================
+ *         WIDGETS&SIDEBAR
+=============================================================
+*
+*
+*/
 function awesome_widget_setup()	{
 	register_sidebar(
-	array(
+		array(
 		'name' => 'sidebar',
 		'id' =>'sidebar-1',
 		'class' =>'custom',
