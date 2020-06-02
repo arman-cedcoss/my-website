@@ -57,6 +57,7 @@ add_action( 'init', 'register_menu' );
 *
 */
 add_theme_support( 'post-thumbnails' );
+set_post_thumbnail_size( 1200, 9999 );
 
 /*
 =============================================================
@@ -79,7 +80,7 @@ add_theme_support( 'custom-header' );
 
 /*
 =============================================================
- *         WIDGETS&SIDEBAR
+                  WIDGETS&SIDEBAR
 =============================================================
 *
 *
@@ -96,8 +97,126 @@ function awesome_widget_setup()	{
 		'before-title' => '<h1 class="widget-title">',
 		'after-title' => '</h1>',)
 );
+	// Footer #1.
+	register_sidebar(
+		array_merge(
+			$shared_args,
+			array(
+				'name'        => __( 'Footer-1', 'new_theme' ),
+				'id'          => 'sidebar-1',
+				'description' => __( 'Widgets in this area will be displayed in the first column in the footer.', 'twentytwenty' ),
+			)
+		)
+	);
+
 }
 add_action('widgets_init','awesome_widget_setup');
+
+/**
+ * This is comment
+=============================================================
+					ADDING POST-FORMATS
+=============================================================
+ *
+ *  @package WordPress
+ */
+
+add_theme_support('post-formats',array('aside','image','video'));
+
+
+
+/**
+ * This is comment
+=============================================================
+					AUTOMATIC FEED-LINKS
+=============================================================
+ *
+ *  @package WordPress
+ */
+
+add_theme_support( 'automatic-feed-links' );
+
+
+/**
+ * This is comment
+=============================================================
+					STYLE EDITOR
+=============================================================
+ *
+ *  @package WordPress
+ */
+
+add_editor_style( get_template_directory_uri() . '/vendor/bootstrap/css/bootstrap.min.css' );
+
+
+
+/**
+ * This is comment
+=============================================================
+					ADDING CUSTOM-LOGO
+=============================================================
+ *
+ *  @package WordPress
+ */
+
+// Custom logo.
+$logo_width  = 120;
+$logo_height = 90;
+
+// If the retina setting is active, double the recommended width and height.
+if ( get_theme_mod( 'retina_logo', false ) ) {
+	$logo_width  = floor( $logo_width * 2 );
+	$logo_height = floor( $logo_height * 2 );
+}
+
+add_theme_support(
+	'custom-logo',
+	array(
+		'height'      => $logo_height,
+		'width'       => $logo_width,
+		'flex-height' => true,
+		'flex-width'  => true,
+	)
+);
+
+/**
+ * This is comment
+=============================================================
+					TITLE-TAG
+=============================================================
+ *
+ *  @package WordPress
+ */
+
+add_theme_support( 'title-tag' );
+
+/**
+* This is comment
+=============================================================
+					HTML-5
+=============================================================
+*
+* @package WordPress
+* Switch default core markup for search form, comment form, and comments
+* to output valid HTML5.
+*/
+	add_theme_support(
+		'html5',
+		array(
+			'search-form',
+			'comment-form',
+			'comment-list',
+			'gallery',
+			'caption',
+			'script',
+			'style',
+		)
+	);
+
+
+
+
+
 
 
 
