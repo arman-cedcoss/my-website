@@ -41,8 +41,8 @@ add_action( 'wp_enqueue_scripts', 'themeslug_enqueue_script' );
  */
 function register_menu() {
 	// menu register code.
-	register_nav_menu('primary','primary header navigation');
-	register_nav_menu('secondary','footer navigation');
+	register_nav_menu( 'primary','primary header navigation' );
+	register_nav_menu( 'secondary','footer navigation' );
 	add_theme_support( 'menus' );
 }
 	// attach with action hook.
@@ -80,11 +80,11 @@ add_theme_support( 'custom-header' );
 
 /**
 =============================================================
-                  WIDGETS&SIDEBAR
+					WIDGETS&SIDEBAR
 =============================================================
  *
  *
-*/
+ */
 function awesome_widget_setup()	{
 	register_sidebar(
 		array(
@@ -97,18 +97,6 @@ function awesome_widget_setup()	{
 			'before-title' => '<h1 class="widget-title">',
 			'after-title' => '</h1>',)
 );
-	// Footer #1.
-	register_sidebar(
-		array_merge(
-			$shared_args,
-			array(
-				'name'        => __( 'Footer-1', 'new_theme' ),
-				'id'          => 'sidebar-1',
-				'description' => __( 'Widgets in this area will be displayed in the first column in the footer.', 'twentytwenty' ),
-			)
-		)
-	);
-
 }
 add_action('widgets_init','awesome_widget_setup');
 
