@@ -43,7 +43,7 @@ if ( have_posts() ) {
 	<div class="card-footer text-muted">
 		Posted on <a href="#"><?php the_date(); ?></a> by
 		<a href="#"><?php the_author(); ?></a>
-		<a href="#"><?php the_category(); ?> || <?php the_tags(); ?> || <?php edit_post_link(); ?></small></a>
+		<a href="#"><?php the_category(' '); ?> || <?php the_tags(); ?> || <?php edit_post_link(); ?></small></a>
 	</div>
 </div>
 

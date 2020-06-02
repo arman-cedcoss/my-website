@@ -1,4 +1,5 @@
 <!-- Footer -->
+<div style="background-color: black; color: white;">
 <?php wp_nav_menu(array(
 	'menu'       => 'primary-menu',
 	'container'  => '',
@@ -6,6 +7,7 @@
 	'items_wrap' => '<li class="nav navbar-nav navbar-right headerMenu" style ="text-align:right; margin:10px; margin-left:500px; padding:px;">%3$s</li>',
 ));
 ?>
+</div>
 <footer class="py-5 bg-dark">
 	<div class="container">
 		<p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>

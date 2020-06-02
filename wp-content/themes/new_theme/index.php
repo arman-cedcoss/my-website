@@ -24,8 +24,8 @@ get_header();
 <!-- Blog Entries Column -->
 <div class="col-md-8">
 
-<h1 class="my-4">Page Heading
-<small>Secondary Text</small>
+<h1 class="my-4">My Website
+<small>Theme</small>
 </h1>
 
 <?php
