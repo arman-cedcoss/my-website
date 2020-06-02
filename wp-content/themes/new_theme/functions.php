@@ -78,24 +78,24 @@ add_theme_support( 'custom-background' );
 */
 add_theme_support( 'custom-header' );
 
-/*
+/**
 =============================================================
                   WIDGETS&SIDEBAR
 =============================================================
-*
-*
+ *
+ *
 */
 function awesome_widget_setup()	{
 	register_sidebar(
 		array(
-		'name' => 'sidebar',
-		'id' =>'sidebar-1',
-		'class' =>'custom',
-		'description' => 'standard sidebar',
-		'before-widget' => '<aside id="%1$s" class="widget %$2s">',
-		'after-widget' => '<aside>',
-		'before-title' => '<h1 class="widget-title">',
-		'after-title' => '</h1>',)
+			'name' => ' sidebar ',
+			'id'	=> 'sidebar-1',
+			'class' =>'custom',
+			'description' => 'standard sidebar',
+			'before-widget' => '<aside id="%1$s" class="widget %$2s">',
+			'after-widget' => '<aside>',
+			'before-title' => '<h1 class="widget-title">',
+			'after-title' => '</h1>',)
 );
 	// Footer #1.
 	register_sidebar(
@@ -212,6 +212,25 @@ add_theme_support( 'title-tag' );
 			'style',
 		)
 	);
+
+/**
+ * This is comment
+=============================================================
+					CONTENT-WIDTH
+=============================================================
+ *
+ *  @package WordPress  //CONTENT-WIDTH
+ */
+if ( ! isset( $content_width ) )
+	$content_width = 625;
+
+function new_theme_content_width() {
+	if ( is_page_template( 'full-width-page.php' ) || is_attachment() ) {
+		global $content_width;
+		$content_width = 960;
+	}
+}
+add_action( 'template_redirect', 'new_theme_content_width' );
 
 
 
